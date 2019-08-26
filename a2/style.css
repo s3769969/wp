@@ -4,8 +4,9 @@ body
 {
   padding:20px;
   margin:0px;
-  background: rgba(40,40,40,0.1);
-  border: 5px solid hsl(314,0%,40%);
+  colour: hsla(50, 90%, 50%, 1);
+  background: hsla(0, 100%, 100%, 1);
+  border: 5px solid hsla(0, 100%, 100%, 1);
   box-sizing: border-box;
 }
 
@@ -19,7 +20,6 @@ body {
   min-height:calc(100vh - 2 * 20px);
 }
 
-
 /* Give all semantic body elements uniform layout style */
 header,
 nav,
@@ -31,106 +31,26 @@ article,
 details,
 div
 {
+  color: hsla(50, 90%, 50%, 1);
+  background: hsla(0, 0%, 10%, 1);
   margin: 5px;
   padding: 5px;
   box-sizing: border-box;
   border: 5px solid #0006;
 }
 
-/* Give each semantic body element a different color */
-header
-{
-  background-color: hsl(0,100%,97%);
-  border: 5px solid hsl(0,100%,60%);
-}
-nav
-{
-  top: 0px;
-  position: sticky;
-  background-color: hsl(240,100%,97%);
-  border: 5px solid hsl(240,100%,60%);
-}
-main
-{
-  background-color: hsl(120,100%,97%);
-  border: 5px solid hsl(120,100%,40%);
-}
-footer
-{
-  background-color: hsl(300,100%,97%);
-  border: 5px solid hsl(300,100%,60%);
-}
-
-article
-{
-  background-color: hsl(270,100%,97%);
-  border: 5px solid hsl(270,100%,70%);
-}
-aside
-{
-  background-color: hsl(180,100%,97%);
-  border: 5px solid hsl(180,100%,40%);
-}
-section
-{
-  background-color: hsl(30,100%,97%);
-  border: 5px solid hsl(30,100%,60%);
-}
-details
-{
-  background-color: hsl(60,60%,97%);
-  border: 5px solid hsl(60,60%,60%);    
-}
-
-div
-{
-  border: 2px dashed hsl(210,100%,40%);  
-}
-
-/* HTML 4 Deprecated Tags and Attributes*/
-center,
-font,
-menu,
-marquee,
-*[align],
-*[border],
-*[color],
-*[bgcolor]
-{
-  padding:10px;
-  background: repeating-linear-gradient(315deg, #999 0px, #999 20px, #FF9 20px, #FF9 40px) !important;
-  border:20px solid black;
-}
-frame,
-table {
-  padding:10px;
-  background: repeating-linear-gradient(315deg, #999 0px, #999 20px, #9FF 20px, #9FF 40px) !important;
-}
-
-center::after,
-font::after,
-menu::after,
-marquee::after,
-*[align]::after,
-*[border]::after,
-*[color]::after,
-*[bgcolor]::after
-{ 
-  content:"Note to Student: Look for and remove all HTML4 deprecated code before submission.";
-  font-size:400%;
-  color:red;
-  font-weight:bold;
-  text-shadow: -1px -1px 1px rgba(255,255,255,0.8), 2px  2px 2px rgba(0,0,0,0.8);
-}
-
 /* Some basic styling for the starting page */
 
 header {
   font-size: 400%;
-  font-weight: bold;
+  font-weight:bold;
+  text-shadow: -1px -1px 1px rgba(255,255,255,0.8), 2px  2px 2px rgba(0,0,0,0.8);
+
 }
 
 header * {
+  color: hsla(50, 90%, 50%, 1);
+  background: hsla(0, 0%, 10%, 1);
   vertical-align: middle;
 }
 
@@ -140,58 +60,42 @@ header img {
   margin-right: 40px;
 }
 
-nav,
-footer {
+nav {
+  display: block;
+  position: sticky;
+  top: 0;
+  width: 100%;
   padding: 10px;
+  background: hsla(0, 0%, 0%, 1);
 }
 
 nav ul {
-  padding:0;
-  margin:0.2em;
-  display: inline-block;
-  list-style: none;
+    padding: 0;
+    margin: 0.2em;
+    display: inline-block;
+    list-style: none;
 }
 
 nav ul li {
   display: inline-block;  
   padding:0.2em;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
 }
 
-/* Style the navbar */
-#navbar {
-  overflow: hidden;
-  background-color: #333;
+a:link,  a:visited { 
+  color: hsla(50, 90%, 50%, 1);
 }
-
-/* Navbar links */
-#navbar a {
-  float: left;
-  display: block;
-  color: rgb(0, 255, 0);
-  text-align: center;
-  padding: 14px;
-  text-decoration: none;
+a:hover, a:active { 
+  color: hsla(0, 0%, 10%, 1);
+  background: hsla(50, 90%, 50%, 1);
 }
 
 nav a:link,  nav a:visited { 
-  color: rgb(0, 255, 255);
+  color: hsla(50, 90%, 50%, 1);
 }
 nav a:hover, nav a:active { 
-  color: rgb(255, 255, 0);
+  color: hsla(0, 0%, 0%, 1);
+  background: hsla(50, 90%, 50%, 1);
 }
-
-#nowshowing div {
-  width: 50%;
-}
-
-#nowshowing div span {
-  width: 500px;
-  height: 700px;
-}
-
 .poster{
   width: 500px;
   height: 700px; 
@@ -200,13 +104,6 @@ nav a:hover, nav a:active {
 /* Page content */
 .content {
   padding: 16px;
-}
-
-/* The sticky class is added to the navbar with JS when it reaches its scroll position */
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
 }
 
 /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */

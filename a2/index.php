@@ -30,7 +30,7 @@
     <link id='wireframecss' type="text/css" rel="stylesheet" href="../wireframe.css" disabled>
     <link id='stylecss' type="text/css" rel="stylesheet" href="style.css">
     <script src='../wireframe.js'></script>
-    <link href='//fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Convergence' rel='stylesheet' type='text/css'>
 
   </head>
 
@@ -44,7 +44,7 @@
 
     </header>
 
-    <nav style='font-family: "Indie Flower";'>
+    <nav style='font-family: "Convergence";'>
 	<ul>
   	  <li><a href="#aboutus">About Us</a></li>
   	  <li><a href="#pricing">Pricing</a></li>
