@@ -2,11 +2,11 @@
 html,
 body
 {
-  padding:20px;
+  padding:0px;
   margin:0px;
   colour: hsla(50, 90%, 50%, 1);
-  background: hsla(0, 100%, 100%, 1);
-  border: 5px solid hsla(0, 100%, 100%, 1);
+  background: hsla(0, 0%, 10%, 1);
+  border: 0px solid hsla(0, 100%, 100%, 1);
   box-sizing: border-box;
 }
 
@@ -96,9 +96,54 @@ nav a:hover, nav a:active {
   color: hsla(0, 0%, 0%, 1);
   background: hsla(50, 90%, 50%, 1);
 }
+
+section {
+  min-height:100vh;
+}
+
+section#pricing div:nth-child(2n){
+  color: hsla(0, 0%, 0%, 1);
+  background: hsla(50, 90%, 50%, 1);
+}
+
+section#nowshowing div{
+  display:inline-block;
+  box-sizing:border-box;
+  margin:auto;
+  min-width: 500px;
+  width: calc(90%/2);
+}
+
+section#nowshowing{
+  display:block;
+}
+
+@media only screen and (min-width: auto){
+section#nowshowing div{width:calc(90%/1);}
+}
+
+section#nowshowing p{
+  text-align:justify;
+}
+
+.seats {
+  display:inline-block;
+  box-sizing:border-box;
+  margin:auto;
+  min-width: 500px;
+  width: calc(90%/2);
+}
+
+
+.video{
+  width: 95%;
+}
+
 .poster{
-  width: 500px;
-  height: 700px; 
+  min-width: 250px;
+  max-width: 500px;
+  min-height: 300px;
+  max-height: 700px; 
 }
 
 /* Page content */
@@ -107,7 +152,7 @@ nav a:hover, nav a:active {
 }
 
 /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
-.sticky + .content {
+.sticky + .content, #aboutus, #pricing, #nowshowing {
   padding-top: 60px;
 }
 
