@@ -111,38 +111,39 @@
 	<div id="ACT">
 	  <img class="poster" src='../../media/endgameposter2.jpg' alt='endgame poster' />
 	  <div><h2>Avengers: Endgame	(PG-13)</h2><br>
-	  <br>Mon -<br>Tues -<br>Wed 9pm<br>Thurs 9pm<br>Fri 9pm<br>Sat 6pm<br>Sun 6pm
+	  <p><br>Mon -<br>Tues -<br>Wed 9pm<br>Thurs 9pm<br>Fri 9pm<br>Sat 6pm<br>Sun 6pm</p>
 	  </div>
 	</div>
 
 	<div id="RMC">
 	  <img class="poster" src='../../media/topendweddingposter.jpg' alt='top end wedding poster' />	
 	  <div><h2>Top End Wedding	(M)</h2><br>
-	  <br>Mon 6pm <br>Tues 6pm <br>Wed - <br>Thurs - <br>Fri - <br>Sat 3pm <br>Sun 3pm
+	  <p><br>Mon 6pm <br>Tues 6pm <br>Wed - <br>Thurs - <br>Fri - <br>Sat 3pm <br>Sun 3pm</p>
 	  </div>
 	</div>
 
 	<div id="ANM">
 	  <img class="poster" src='../../media/dumboposter.jpg' alt='dumbo poster' />
 	  <div><h2>Dumbo	(PG)</h2><br>
-	  <br>Mon 12pm <br>Tues 12pm <br>Wed 6pm <br>Thurs 6pm <br>Fri 6pm <br>Sat 12pm <br>Sun 12pm
+	  <p><br>Mon 12pm <br>Tues 12pm <br>Wed 6pm <br>Thurs 6pm <br>Fri 6pm <br>Sat 12pm <br>Sun 12pm</p>
 	  </div>
 	</div>
 
 	<div id="AHF">
 	  <img class="poster" src='../../media/happyprinceposter.jpg' alt='happy prince poster' />
 	  <div><h2>The Happy Prince	(R)</h2><br>
-	  <br>Mon - <br>Tues - <br>Wed 12pm <br>Thurs 12pm <br>Fri 12pm <br>Sat 9pm <br>Sun 9pm
+	  <p><br>Mon - <br>Tues - <br>Wed 12pm <br>Thurs 12pm <br>Fri 12pm <br>Sat 9pm <br>Sun 9pm</p>
 	  </div>
 	</div>
 	</section>
 	
 	<article id='Synopsis'>
 	  <h1>Avengers: Endgame	(PG-13)</h1>
-	  <iframe id="trailer" width="" height="" src="https://www.youtube.com/embed/lLfKgylPkm4" frameborder="" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>	
-	  <h2>Plot Description:</h2>
+	  <iframe id="trailer" width="" height="360px" src="https://www.youtube.com/embed/lLfKgylPkm4" frameborder="" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	  <div id="synopsistext"><h2>Plot Description:</h2>
 	  <p>After the devastating events of Avengers: Infinity War (2018), the universe is in ruins due to the efforts of the Mad Titan, Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos's actions and undo the chaos to the universe, no matter what consequences may be in store, and no matter who they face...</p>
-	  <div>
+	  </div>
+	  <div id="booking">
 	  <h2>Make a Booking</h2>
 	  <ul>
 	    <button>Wed 9pm</button>
