@@ -12,7 +12,8 @@
     <!-- Keep wireframe.css for debugging, add your css to style.css -->
     <link id='wireframecss' type="text/css" rel="stylesheet" href="../wireframe.css" disabled>
     <link id='stylecss' type="text/css" rel="stylesheet" href="style.css">
-    <script src='script.js'></script>
+    <script type="text/javascript" src='script.js'></script>
+    <noscript>Your browser does not have JavaScript enabled.<br> Please enable JavaScript in browser settings.</noscript>
     <link href='//fonts.googleapis.com/css?family=Convergence' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Play&display=swap" rel="stylesheet">  </head>
 
@@ -71,34 +72,34 @@
                 <div class="cell">Standard Pricing</div>
              </div>
             <div class="row">
-                  <div class="cell">Standard Adult</div>
-                <div class="cell">14.00</div>
-                <div class="cell">19.80</div>
+                <div class="cell">Standard Adult</div>
+                <div id="STA-disc" class="cell" value="14.00">14.00</div>
+                <div id="STA-nodisc" class="cell" value="19.80">19.80</div>
             </div>
             <div class="rowOdd">
                 <div class="cell">Standard Concession</div>
-                <div class="cell">12.50</div>
-                <div class="cell">17.50</div>
+                <div id="STP-disc" class="cell" value="12.50">12.50</div>
+                <div id="STP-nodisc" class="cell" value="17.50">17.50</div>
            </div>
             <div class="row">
                 <div class="cell">Standard Child</div>
-                <div class="cell">11.00</div>
-                <div class="cell">15.30</div>
+                <div id="STC-disc" class="cell" value="11.00">11.00</div>
+                <div id="STA-nodisc" class="cell" value="15.30">15.30</div>
            </div>
 		<div class="rowOdd">
                 <div class="cell">First-Class Adult</div>
-                <div class="cell">24.00</div>
-                <div class="cell">30.00</div>
+                <div id="FCA-disc" class="cell" value="24.00">24.00</div>
+                <div id="FCA-nodisc" class="cell" value="30.00">30.00</div>
            </div>
 		<div class="row">
                 <div class="cell">First-Class Concession</div>
-                <div class="cell">22.50</div>
-                <div class="cell">27.00</div>
+                <div id="FCP-disc" class="cell" value="22.50">22.50</div>
+                <div id="FCP-nodisc" class="cell" value="27.00">27.00</div>
            </div>
 		<div class="rowOdd">
                 <div class="cell">First-Class Child</div>
-                <div class="cell">21.00</div>
-                <div class="cell">24.00</div>
+                <div id="FCC-disc" class="cell" value="21.00">21.00</div>
+                <div id="FCC-nodisc" class="cell" value="24.00">24.00</div>
            </div>
 	<div class="spacer"></div>
 	<div class="rowOdd">*Discount Pricing applies all day Monday and Wednesday, AND 12pm on Weekdays</div>
@@ -152,8 +153,12 @@
 	    <button>Sat 6pm</button>
 	    <button>Sun 6pm</button>
 	  </ul>
+	  </div>
+	</article>
 
-	<form>
+      <article id='Booking Area'>
+	<h1>Booking Area</h1>
+        <form>
 
 	<input id="movie-id" type="hidden" name="movie[id]">
 	<input id="movie-day" type="hidden" name="movie[day]">
@@ -172,6 +177,8 @@
 	 <option value="9">9</option>
 	 <option value="10">10</option>
 	</select>
+	<span class="error" id="seats-STA-error"></span>
+
 	Concession <select id="seats-STP" name="seats[STP]">
 	 <option value="">Please Select</option>
 	 <option value="1">1</option>
@@ -185,6 +192,8 @@
 	 <option value="9">9</option>
 	 <option value="10">10</option>
 	</select>
+	<span class="error" id="seats-STP-error"></span>
+
 	Children <select id="seats-STC" name="seats[STC]">
 	 <option value="">Please Select</option>
 	 <option value="1">1</option>
@@ -198,6 +207,7 @@
 	 <option value="9">9</option>
 	 <option value="10">10</option>
 	</select>
+	<span class="error" id="seats-STC-error"></span>
 
 	Adults <select id="seats-FCA" name="seats[FCA]">
 	 <option value="">Please Select</option>
@@ -212,6 +222,8 @@
 	 <option value="9">9</option>
 	 <option value="10">10</option>
 	</select>
+	<span class="error" id="seats-FCA-error"></span>
+
 	Concession <select id="seats-FCP" name="seats[FCP]">
 	 <option value="">Please Select</option>
 	 <option value="1">1</option>
@@ -225,6 +237,8 @@
 	 <option value="9">9</option>
 	 <option value="10">10</option>
 	</select>
+	<span class="error" id="seats-FCP-error"></span>
+
 	Children <select id="seats-FCC" name="seats[FCC]">
 	 <option value="">Please Select</option>
 	 <option value="1">1</option>
@@ -238,24 +252,27 @@
 	 <option value="9">9</option>
 	 <option value="10">10</option>
 	</select>
+	<span class="error" id="seats-FCC-error"></span>
+
+	<span id="price-total" name="price[total]" value="">Total $ </span>
 
 	Name <input id="cust-name" type="text" name="cust[name]" placeholder="John Smith">
+	<span class="error" id="cust-name-error"></span>
 	Email <input id="cust-email" type="email" name="cust[email]" placeholder="john.smith@gmail.com">
+	<span class="error" id="cust-email-error"></span>
 	Mobile <input id="cust-mobile" type="tel" name="cust[mobile]" placeholder="Enter Mobile Number">
+	<span class="error" id="cust-mobile-error"></span>
 	Credit Card <input id="cust-card" type="number" name="cust[card]" placeholder="Enter CC Number">
+	<span class="error" id="cust-card-error"></span>
 	Expiry <input id="cust-expiryMonth" type="number" name="cust[expiryMonth]" placeholder="MM">
+	<span class="error" id="cust-expiryMonth-error"></span>
 	<input id="cust-expiryYear" type="number" name="cust[expiryYear]" min="new Date().getFullYear()" max="2050" step="1" placeholder="YYYY">
+	<span class="error" id="cust-expiryYear-error"></span>
 	<input id="cust-expiry" type="month" name="cust[expiry]">
+	<span class="error" id="cust-expiry-error"></span>
 	Order <input id="order" type="submit" name="order">
-	</form>
-	  </div>
-	</article>
-
-        
-      <article id='Booking Area'>
-	<h1>Booking Area</h1>
-        <!-- Creative Commons image sourced from https://pixabay.com/en/maintenance-under-construction-2422173/ and used for educational purposes only -->
-        <img src='../../media/website-under-construction.png' alt='Website Under Construction' />
+	<span class="error" id="order-error"></span>
+	</form>  
       </article>
 
     </main>
