@@ -1,1 +1,288 @@
-/* Insert your styles here */
+/* Make HTML and body content viewable, layout to fill window */
+html,
+body
+{
+  padding:0px;
+  margin:0px;
+  colour: hsla(50, 90%, 50%, 1);
+  background: hsla(0, 0%, 10%, 1);
+  border: 0px solid hsla(0, 100%, 100%, 1);
+  box-sizing: border-box;
+}
+
+/* Makes the html / webpage as tall or taller as the browser window */
+html {
+  min-height:100vh;
+}
+
+/* Makes the body as tall or taller as the browser window, less html element's padding */
+body {
+  min-height:calc(100vh - 2 * 20px);
+}
+
+/* Give all semantic body elements uniform layout style */
+header,
+nav,
+main,
+footer,
+aside,
+section,
+article,
+details,
+div
+{
+  color: hsla(50, 90%, 50%, 1);
+  background: hsla(0, 0%, 10%, 1);
+  margin: 5px;
+  padding: 5px;
+  box-sizing: border-box;
+  border: 5px solid hsla(0, 0%, 10%, 1);
+}
+
+#parallaxTop { 
+  /* The image used */
+  background-image: url("../../media/cinemaray.jpg");
+
+  /* Set a specific height */
+  height: 60vh; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1{
+  font-family: 'Play', sans-serif;
+}
+
+h2{
+  font-family: Convergence;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+p{
+  font-family: Convergence;
+}
+
+
+/* Some basic styling for the starting page */
+
+header {
+  font-family: 'Play', sans-serif;
+  font-size: 400%;
+  font-weight:bold;
+  text-shadow: -3px -3px 3px rgba(255,255,255,0.8), 4px  4px 4px rgba(0,0,0,0.8);
+
+}
+
+header * {
+  color: hsla(50, 90%, 50%, 1);
+  background: hsla(0, 0%, 10%, 1);
+  vertical-align: middle;
+}
+
+header img {
+  filter: drop-shadow(-1px -1px 3px white);
+  -webkit-filter: drop-shadow(-1px -1px 3px white);
+  margin-right: 40px;
+}
+
+nav {
+  z-index: 1;
+  font-family: Convergence;
+  display: block;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  padding: 0px;
+  background: hsla(0, 0%, 0%, 1);
+}
+
+nav ul {
+    padding: 0px;
+    display: inline-block;
+    list-style: none;
+}
+
+nav ul li {
+  display: inline-block;  
+  padding: 0px;
+}
+
+nav a{
+  padding:10px;
+}
+
+a:link,  a:visited { 
+  color: hsla(50, 90%, 50%, 1);
+}
+
+a:hover, a:active { 
+  color: hsla(0, 0%, 10%, 1);
+  background: hsla(50, 90%, 50%, 1);
+}
+
+nav a:link,  nav a:visited { 
+  color: hsla(50, 90%, 50%, 1);
+}
+
+nav a:hover, nav a:active { 
+  color: hsla(0, 0%, 0%, 1);
+  background: hsla(50, 90%, 50%, 1);
+}
+
+/*Sections have minimum 100% viewport height*/
+section {
+  min-height:100vh;
+}
+
+#aboutus{
+  background: linear-gradient(blue, green, yellow, orange, red);
+}
+
+.seats {
+    display: inline-block;
+    box-sizing: border-box;
+    min-width: 400px;
+    width: calc(90%/2);
+    box-sizing: content-box;
+    block-size: auto;
+}
+
+.seatimg {
+  box-sizing:border-box;
+  max-width: 400px;
+  block-size: auto;
+}
+
+.table {
+  display:inline-block;
+  
+}
+.row { 
+  display:table;
+  background: hsla(10, 90%, 50%, 1);
+}
+.cell {
+  display:table-cell;
+  padding:15px;
+  width:200px;
+}
+
+.rowOdd{
+  display: table;
+  color: hsla(0, 0%, 0%, 1);
+  background: hsla(50, 90%, 50%, 1);
+}
+
+section#pricing{
+  padding-bottom: 100px;
+  /* The image used */
+  background-image: url("../../media/redroom.jpg");
+
+  /* Set a specific height */
+  height: 1100px; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#nowshowing, #nowshowing div {
+  border: 0px;
+  background: repeating-linear-gradient(270deg, hsla(0, 0%, 10%, 1), hsla(0, 0%, 0%, 1) 20px, hsla(0, 0%, 10%, 1) 10px);
+}
+
+section#nowshowing{
+  display:block;
+}
+
+section#nowshowing div {
+  display:inline-block;
+  box-sizing:border-box;
+  min-width: 540px;
+  width: calc(95%/2);
+}
+
+section#nowshowing div div{
+  box-sizing: border-box;
+  display: inline-block;
+  min-width: 250px;
+  width: 15%;
+  text-align: center;
+  position: static;
+  vertical-align: top;
+}
+
+section#nowshowing div div p{
+  box-sizing: border-box;
+  display: inline-block;
+  min-width: 250px;
+  width: 15%;
+  text-align: center;
+  position: static;
+  vertical-align: top;
+}
+
+#trailer {
+  display: inline-block;
+  min-width: 250px;
+  width: 50%;
+}
+
+#synopsistext {
+    display: inline-block;
+    vertical-align: top;
+    min-width: 200px;
+    width: 45%;
+}
+
+.video{
+  width: 95%;
+}
+
+.poster{
+  vertical-align:text-top;
+  min-width: 250px;
+  max-width: 50%; 
+}
+
+#booking h2 {
+  text-align: left;
+}
+
+button {
+  color: hsla(0, 0%, 10%, 1);
+  background: hsla(50, 90%, 50%, 1);
+  font-family: Convergence;
+  margin: .2em;
+  font-size:15px;
+  border: 3px solid grey;
+}
+
+/* Page content */
+.content {
+  padding: 16px;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content, #aboutus, #pricing, #nowshowing {
+  padding-top: 100px;
+}
+
+footer {
+  margin: 0px;
+  border: 0px;
+}
+
+footer * {
+  margin: 0px;
+  border: 0px;
+  color: hsla(50, 90%, 50%, 1);
+  background: linear-gradient(90deg, hsla(0, 0%, 10%, 1), hsla(0, 0%, 0%, 1));
+}
