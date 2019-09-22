@@ -12,26 +12,29 @@
     <!-- Keep wireframe.css for debugging, add your css to style.css -->
     <link id='wireframecss' type="text/css" rel="stylesheet" href="../wireframe.css" disabled>
     <link id='stylecss' type="text/css" rel="stylesheet" href="style.css">
+    <script type="text/javascript" src='../wireframe.js'></script>
     <script type="text/javascript" src='script.js'></script>
-    <noscript>Your browser does not have JavaScript enabled.<br> Please enable JavaScript in browser settings.</noscript>
+    <!-- <script type="text/javascript"> function hello(){alert("hello");}</script> -->
+    <noscript>Your browser does not support JavaScript.<br> Please enable JavaScript in browser settings.</noscript>
     <link href='//fonts.googleapis.com/css?family=Convergence' rel='stylesheet' type='text/css'>
-    <link href="https://fonts.googleapis.com/css?family=Play&display=swap" rel="stylesheet">  </head>
+    <link href="https://fonts.googleapis.com/css?family=Play&display=swap" rel="stylesheet">
+  </head>
 
   <body>
 
     <header>
       <div>
 	<span>Lunardo Cinema</span>
-	<img src='../../media/LClogo.png' alt='Lunardo Cinema logo' height=80 />
+	<img onclick="hello()" src='../../media/LClogo.png' alt='Lunardo Cinema logo' height=80 />
       </div>
 
     </header>
 
     <nav>
 	<ul>
-  	  <li><a href="#aboutus">About Us</a></li>
-  	  <li><a href="#pricing">Pricing</a></li>
-  	  <li><a href="#nowshowing">Now Showing</a></li>
+  	  <li><a id="aboutusNav" href="#aboutus" onclick="activeNav(aboutusNav)">About Us</a></li>
+  	  <li><a id="pricingNav" href="#pricing" onclick="activeNav(pricingNav)">Pricing</a></li>
+  	  <li><a id="nowshowingNav" href="#nowshowing" onclick="activeNav(nowshowingNav)">Now Showing</a></li>
 	</ul>
 
     </nav>
@@ -158,12 +161,17 @@
 
       <article id='Booking Area'>
 	<h1>Booking Area</h1>
-        <form>
 
-	<input id="movie-id" type="hidden" name="movie[id]">
-	<input id="movie-day" type="hidden" name="movie[day]">
-	<input id="movie-hour" type="hidden" name="movie[hour]">
+	<div id="form" class="form">
+	<h2 id=bookingTitleDayTime></h2>
+        <form id= bookingForm name="booking-form" method="post" onsubmit='return FormCheck()'>
+	
+	<input id="movie-id" type="hidden" name="movie[id]" value="">
+	<input id="movie-day" type="hidden" name="movie[day]" value="">
+	<input id="movie-hour" type="hidden" name="movie[hour]" value="">
 
+	<div id="form-left" class="form">
+	<span>Standard</span>
 	Adults <select id="seats-STA" name="seats[STA]">
 	 <option value="">Please Select</option>
 	 <option value="1">1</option>
@@ -178,6 +186,7 @@
 	 <option value="10">10</option>
 	</select>
 	<span class="error" id="seats-STA-error"></span>
+	<br>
 
 	Concession <select id="seats-STP" name="seats[STP]">
 	 <option value="">Please Select</option>
@@ -193,6 +202,7 @@
 	 <option value="10">10</option>
 	</select>
 	<span class="error" id="seats-STP-error"></span>
+	<br>
 
 	Children <select id="seats-STC" name="seats[STC]">
 	 <option value="">Please Select</option>
@@ -208,7 +218,9 @@
 	 <option value="10">10</option>
 	</select>
 	<span class="error" id="seats-STC-error"></span>
+	<br>
 
+	<span>First Class</span>
 	Adults <select id="seats-FCA" name="seats[FCA]">
 	 <option value="">Please Select</option>
 	 <option value="1">1</option>
@@ -223,6 +235,7 @@
 	 <option value="10">10</option>
 	</select>
 	<span class="error" id="seats-FCA-error"></span>
+	<br>
 
 	Concession <select id="seats-FCP" name="seats[FCP]">
 	 <option value="">Please Select</option>
@@ -238,6 +251,7 @@
 	 <option value="10">10</option>
 	</select>
 	<span class="error" id="seats-FCP-error"></span>
+	<br>
 
 	Children <select id="seats-FCC" name="seats[FCC]">
 	 <option value="">Please Select</option>
@@ -255,24 +269,34 @@
 	<span class="error" id="seats-FCC-error"></span>
 
 	<span id="price-total" name="price[total]" value="">Total $ </span>
-
+	</div>
+	<div id="form-right" class="form">
 	Name <input id="cust-name" type="text" name="cust[name]" placeholder="John Smith">
 	<span class="error" id="cust-name-error"></span>
+	<br>
 	Email <input id="cust-email" type="email" name="cust[email]" placeholder="john.smith@gmail.com">
 	<span class="error" id="cust-email-error"></span>
+	<br>
 	Mobile <input id="cust-mobile" type="tel" name="cust[mobile]" placeholder="Enter Mobile Number">
 	<span class="error" id="cust-mobile-error"></span>
+	<br>
 	Credit Card <input id="cust-card" type="number" name="cust[card]" placeholder="Enter CC Number">
 	<span class="error" id="cust-card-error"></span>
+	<br>
 	Expiry <input id="cust-expiryMonth" type="number" name="cust[expiryMonth]" placeholder="MM">
 	<span class="error" id="cust-expiryMonth-error"></span>
+	<br>
 	<input id="cust-expiryYear" type="number" name="cust[expiryYear]" min="new Date().getFullYear()" max="2050" step="1" placeholder="YYYY">
 	<span class="error" id="cust-expiryYear-error"></span>
+	<br>
 	<input id="cust-expiry" type="month" name="cust[expiry]">
 	<span class="error" id="cust-expiry-error"></span>
-	Order <input id="order" type="submit" name="order">
+	<br>
+	<button id='order-button' onclick='return hello()'>Order</button>
 	<span class="error" id="order-error"></span>
-	</form>  
+	</div>
+	</form>
+	</div>  
       </article>
 
     </main>

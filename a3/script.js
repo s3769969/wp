@@ -1,64 +1,25 @@
-activeNavClick(){
-  changeNav(){};
-};
-
-activeNavScroll(){
-  gety(){};
-  checkNav(){};
-  changeNav(){};
-};
-
-selectSynopsis(){
-  getMovie(){};
-  makeAllInvisible(){};
-  changeMovieVisible(){};
-};
-
-updateHidden(){
-  getMovieDayTime(){};
-  changeHiddenFields(){}
-};
-
-checkFormFields(){
-  checkSTA(){};
-  checkSTP(){};
-  checkSTC(){};
-  checkFCA(){};
-  checkFCP(){};
-  checkFCC(){};
-  checkCustName(){};
-  checkCustEmail(){};
-  checkCustMobile(){};
-  checkCustExpiryMonth(){};
-  checkCustExpiryYear(){};
-  if(error > 0){disableSubmit};
-  else{enableSubmit};
-};
-
-calcTotalCost(){
-  var totalCost{};
-  countSTA(){};
-  countSTP(){};
-  countSTC(){};
-  countFCA(){};
-  countFCP(){};
-  if(discount){
-  calculatePrice(countFCC(){}, parseInt(document.getElementById('FCC-disc').value));}
-  else{ calculatePrice(countFCC(){}, parseInt(document.getElementById('FCC-nodisc').value));}
-};
-
-clickSubmit(){
-
-};
-
-
-function calculatePrice(seatType, seatPrice) {
-  var numSeats = parseInt(document.getElementById(seatType).value);
-  document.getElementById(seatType).focus();
-  document.getElementById(seatType).select();
-  var seatPrice = document.getElementById(seatPrice).value;
-  var price = seatPrice * numSeats;
-  document.getElementById('price').innerHTML = salePrice.toFixed(2);
-  return true;
+function hello(){
+  alert("hello");
 }
+
+var navList = ["aboutusNav", "pricingNav", "nowshowingNav"];
+
+function resetNavColour(){
+  for (var nav of navList){
+    document.getElementById(nav).style = "";
+  }  
+}
+
+function activeNav(navSelected){
+  resetNavColour();
+  for (var nav of navList){
+    if (nav == navSelected.id){
+      document.getElementById(nav).style = "color: hsla(0, 0%, 0%, 1); background: hsla(50, 90%, 50%, 1);";
+    }
+  }
+}
+
+
+
+
 
