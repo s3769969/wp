@@ -18,6 +18,10 @@
     <noscript>Your browser does not support JavaScript.<br> Please enable JavaScript in browser settings.</noscript>
     <link href='//fonts.googleapis.com/css?family=Convergence' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Play&display=swap" rel="stylesheet">
+    <script>
+window.onscroll = function(){ var pageSections = document.getElementsByTagName('main')[0].getElementsByTagName('section');
+checkActiveSection(window.scrollY, pageSections);}
+    </script>
   </head>
 
   <body>
@@ -31,12 +35,9 @@
     </header>
 
     <nav>
-	<ul>
-  	  <li><a id="aboutusNav" href="#aboutus" onclick="activeNav(aboutusNav)">About Us</a></li>
-  	  <li><a id="pricingNav" href="#pricing" onclick="activeNav(pricingNav)">Pricing</a></li>
-  	  <li><a id="nowshowingNav" href="#nowshowing" onclick="activeNav(nowshowingNav)">Now Showing</a></li>
-	</ul>
-
+	<a id="aboutusNav" href="#aboutus" onclick="activeNav(aboutusNav.id)">About Us</a>
+	<a id="pricingNav" href="#pricing" onclick="activeNav(pricingNav.id)">Pricing</a>
+	<a id="nowshowingNav" href="#nowshowing" onclick="activeNav(nowshowingNav.id)">Now Showing</a>
     </nav>
 
     <main>

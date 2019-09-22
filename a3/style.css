@@ -101,18 +101,9 @@ nav {
   background: hsla(0, 0%, 0%, 1);
 }
 
-nav ul {
-    padding: 0px;
-    display: inline-block;
-    list-style: none;
-}
-
-nav ul li {
+nav a {
   display: inline-block;  
   padding: 0px;
-}
-
-nav a{
   padding:10px;
 }
 
