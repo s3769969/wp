@@ -24,7 +24,7 @@ checkActiveSection(window.scrollY, pageSections);}
     </script>
   </head>
 
-  <body>
+  <body onload="updateSynopsis(ACT)">
 
     <header>
       <div>
@@ -114,10 +114,10 @@ checkActiveSection(window.scrollY, pageSections);}
       <section id="nowshowing">
 	<h1>Now Showing</h1>
 	<div id="ACT" href="#Synopsis" onclick="updateSynopsis(ACT)">
-	  <div style="display:none">Avengers: Endgame (PG-13)</div>
-	  <div style="display:none">https://www.youtube.com/embed/lLfKgylPkm4</div>
-	  <div style="display:none">After the devastating events of Avengers: Infinity War (2018), the universe is in ruins due to the efforts of the Mad Titan, Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos's actions and undo the chaos to the universe, no matter what consequences may be in store, and no matter who they face...</div>
-
+	  <div id="ACTTitle" style="display:none">Avengers: Endgame (PG-13)</div>
+	  <div id="ACTTrailer" style="display:none">https://www.youtube.com/embed/lLfKgylPkm4</div>
+	  <div id="ACTSynopsis" style="display:none">After the devastating events of Avengers: Infinity War (2018), the universe is in ruins due to the efforts of the Mad Titan, Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos's actions and undo the chaos to the universe, no matter what consequences may be in store, and no matter who they face...</div>
+	  <div id="ACTTimes" style="display:none"><span>Mon -</span><span>Tues -</span><span>Wed 9pm</span><span>Thurs 9pm</span><span>Fri 9pm</span><span>Sat 6pm</span><span>Sun 6pm</span></div>
 	  <img class="poster" src='../../media/endgameposter2.jpg' alt='endgame poster' />
 	  <div><h2>Avengers: Endgame (PG-13)</h2><br>
 	  <p><br>Mon -<br>Tues -<br>Wed 9pm<br>Thurs 9pm<br>Fri 9pm<br>Sat 6pm<br>Sun 6pm</p>
@@ -125,10 +125,10 @@ checkActiveSection(window.scrollY, pageSections);}
 	</div>
 
 	<div id="RMC" href="#Synopsis" onclick="updateSynopsis(RMC)">
-	  <div style="display:none">Top End Wedding (M)</div>
-	  <div style="display:none">https://www.youtube.com/embed/j5ZXCCM-IVo</div>
-	  <div style="display:none">Lauren and Ned are engaged, they are in love, and they have just ten days to find Lauren's mother who has gone AWOL somewhere in the remote far north of Australia, reunite her parents and pull off their dream wedding.</div>
-	  
+	  <div id=RMCTitle" style="display:none">Top End Wedding (M)</div>
+	  <div id="RMCTrailer" style="display:none">https://www.youtube.com/embed/j5ZXCCM-IVo</div>
+	  <div id="RMCSynopsis" style="display:none">Lauren and Ned are engaged, they are in love, and they have just ten days to find Lauren's mother who has gone AWOL somewhere in the remote far north of Australia, reunite her parents and pull off their dream wedding.</div>
+	  <div id="RMCTimes" style="display:none"><span>Mon 6pm</span><span>Tues 6pm</span><span>Wed -</span><span>Thurs -</span><span>Fri -</span><span>Sat 3pm</span><span>Sun 3pm</span></div>  
 	  <img class="poster" src='../../media/topendweddingposter.jpg' alt='top end wedding poster' />	
 	  <div><h2>Top End Wedding (M)</h2><br>
 	  <p><br>Mon 6pm <br>Tues 6pm <br>Wed - <br>Thurs - <br>Fri - <br>Sat 3pm <br>Sun 3pm</p>
@@ -136,10 +136,10 @@ checkActiveSection(window.scrollY, pageSections);}
 	</div>
 
 	<div id="ANM" href="#Synopsis" onclick="updateSynopsis(ANM)">
-	  <div style="display:none">Dumbo (PG)</div>
-	  <div style="display:none">https://youtube.com/embed/7NiYVoqBt-8</div>
-	  <div style="display:none">A young elephant, whose oversized ears enable him to fly, helps save a struggling circus, but when the circus plans a new venture, Dumbo and his friends discover dark secrets beneath its shiny veneer.</div>
-	  
+	  <div id="ANMTitle" style="display:none">Dumbo (PG)</div>
+	  <div id="ANMTrailer" style="display:none">https://youtube.com/embed/7NiYVoqBt-8</div>
+	  <div id="ANMSynopsis" style="display:none">A young elephant, whose oversized ears enable him to fly, helps save a struggling circus, but when the circus plans a new venture, Dumbo and his friends discover dark secrets beneath its shiny veneer.</div>
+	  <div id="ANMTimes" style="display:none"><span>Mon 12pm</span><span>Tues 12pm</span><span>Wed 6pm</span><span>Thurs 6pm</span><span>Fri 6pm</span><span>Sat 12pm</span><span>Sun 12pm</span></div>
 	  <img class="poster" src='../../media/dumboposter.jpg' alt='dumbo poster' />
 	  <div><h2>Dumbo (PG)</h2><br>
 	  <p><br>Mon 12pm <br>Tues 12pm <br>Wed 6pm <br>Thurs 6pm <br>Fri 6pm <br>Sat 12pm <br>Sun 12pm</p>
@@ -147,10 +147,10 @@ checkActiveSection(window.scrollY, pageSections);}
 	</div>
 
 	<div id="AHF" href="#Synopsis" onclick="updateSynopsis(AHF)">
-	  <div style="display:none">The Happy Prince (R)</div>
-	  <div style="display:none">https://youtube.com/embed/4HmN9r1Fcr8</div>
-	  <div style="display:none">The untold story of the last days in the tragic times of Oscar Wilde, a person who observes his own failure with ironic distance and regards the difficulties that beset his life with detachment and humor.</div>
-	  
+	  <div id="AHFTitle" style="display:none">The Happy Prince (R)</div>
+	  <div id="AHFTrailer" style="display:none">https://youtube.com/embed/4HmN9r1Fcr8</div>
+	  <div id="AHFSynopsis" style="display:none">The untold story of the last days in the tragic times of Oscar Wilde, a person who observes his own failure with ironic distance and regards the difficulties that beset his life with detachment and humor.</div>
+	  <div id="AHFTimes" style="display:none"><span>Mon -</span><span>Tues -</span><span>Wed 12pm</span><span>Thurs 12pm</span><span>Fri 12pm</span><span>Sat 9pm</span><span>Sun 9pm</span></div>  
 	  <img class="poster" src='../../media/happyprinceposter.jpg' alt='happy prince poster' />
 	  <div><h2>The Happy Prince (R)</h2><br>
 	  <p><br>Mon - <br>Tues - <br>Wed 12pm <br>Thurs 12pm <br>Fri 12pm <br>Sat 9pm <br>Sun 9pm</p>
@@ -166,7 +166,7 @@ checkActiveSection(window.scrollY, pageSections);}
 	  </div>
 	  <div id="booking">
 	  <h2>Make a Booking</h2>
-	  <ul>
+	  <ul id="timesButtonList">
 	    <button>Wed 9pm</button>
 	    <button>Thurs 9pm</button>
 	    <button>Fri 9pm</button>
