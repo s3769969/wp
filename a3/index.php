@@ -113,40 +113,56 @@ checkActiveSection(window.scrollY, pageSections);}
 
       <section id="nowshowing">
 	<h1>Now Showing</h1>
-	<div id="ACT">
+	<div id="ACT" href="#Synopsis" onclick="updateSynopsis(ACT)">
+	  <div style="display:none">Avengers: Endgame (PG-13)</div>
+	  <div style="display:none">https://www.youtube.com/embed/lLfKgylPkm4</div>
+	  <div style="display:none">After the devastating events of Avengers: Infinity War (2018), the universe is in ruins due to the efforts of the Mad Titan, Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos's actions and undo the chaos to the universe, no matter what consequences may be in store, and no matter who they face...</div>
+
 	  <img class="poster" src='../../media/endgameposter2.jpg' alt='endgame poster' />
-	  <div><h2>Avengers: Endgame	(PG-13)</h2><br>
+	  <div><h2>Avengers: Endgame (PG-13)</h2><br>
 	  <p><br>Mon -<br>Tues -<br>Wed 9pm<br>Thurs 9pm<br>Fri 9pm<br>Sat 6pm<br>Sun 6pm</p>
 	  </div>
 	</div>
 
-	<div id="RMC">
+	<div id="RMC" href="#Synopsis" onclick="updateSynopsis(RMC)">
+	  <div style="display:none">Top End Wedding (M)</div>
+	  <div style="display:none">https://www.youtube.com/embed/j5ZXCCM-IVo</div>
+	  <div style="display:none">Lauren and Ned are engaged, they are in love, and they have just ten days to find Lauren's mother who has gone AWOL somewhere in the remote far north of Australia, reunite her parents and pull off their dream wedding.</div>
+	  
 	  <img class="poster" src='../../media/topendweddingposter.jpg' alt='top end wedding poster' />	
-	  <div><h2>Top End Wedding	(M)</h2><br>
+	  <div><h2>Top End Wedding (M)</h2><br>
 	  <p><br>Mon 6pm <br>Tues 6pm <br>Wed - <br>Thurs - <br>Fri - <br>Sat 3pm <br>Sun 3pm</p>
 	  </div>
 	</div>
 
-	<div id="ANM">
+	<div id="ANM" href="#Synopsis" onclick="updateSynopsis(ANM)">
+	  <div style="display:none">Dumbo (PG)</div>
+	  <div style="display:none">https://youtube.com/embed/7NiYVoqBt-8</div>
+	  <div style="display:none">A young elephant, whose oversized ears enable him to fly, helps save a struggling circus, but when the circus plans a new venture, Dumbo and his friends discover dark secrets beneath its shiny veneer.</div>
+	  
 	  <img class="poster" src='../../media/dumboposter.jpg' alt='dumbo poster' />
-	  <div><h2>Dumbo	(PG)</h2><br>
+	  <div><h2>Dumbo (PG)</h2><br>
 	  <p><br>Mon 12pm <br>Tues 12pm <br>Wed 6pm <br>Thurs 6pm <br>Fri 6pm <br>Sat 12pm <br>Sun 12pm</p>
 	  </div>
 	</div>
 
-	<div id="AHF">
+	<div id="AHF" href="#Synopsis" onclick="updateSynopsis(AHF)">
+	  <div style="display:none">The Happy Prince (R)</div>
+	  <div style="display:none">https://youtube.com/embed/4HmN9r1Fcr8</div>
+	  <div style="display:none">The untold story of the last days in the tragic times of Oscar Wilde, a person who observes his own failure with ironic distance and regards the difficulties that beset his life with detachment and humor.</div>
+	  
 	  <img class="poster" src='../../media/happyprinceposter.jpg' alt='happy prince poster' />
-	  <div><h2>The Happy Prince	(R)</h2><br>
+	  <div><h2>The Happy Prince (R)</h2><br>
 	  <p><br>Mon - <br>Tues - <br>Wed 12pm <br>Thurs 12pm <br>Fri 12pm <br>Sat 9pm <br>Sun 9pm</p>
 	  </div>
 	</div>
 	</section>
 	
 	<article id='Synopsis'>
-	  <h1>Avengers: Endgame	(PG-13)</h1>
+	  <h1 id="movieTitle">Avengers: Endgame	(PG-13)</h1>
 	  <iframe id="trailer" width="" height="360px" src="https://www.youtube.com/embed/lLfKgylPkm4" frameborder="" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-	  <div id="synopsistext"><h2>Plot Description:</h2>
-	  <p>After the devastating events of Avengers: Infinity War (2018), the universe is in ruins due to the efforts of the Mad Titan, Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos's actions and undo the chaos to the universe, no matter what consequences may be in store, and no matter who they face...</p>
+	  <div id="synopsisDiv"><h2>Plot Description:</h2>
+	  <p id="synopsisText">After the devastating events of Avengers: Infinity War (2018), the universe is in ruins due to the efforts of the Mad Titan, Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos's actions and undo the chaos to the universe, no matter what consequences may be in store, and no matter who they face...</p>
 	  </div>
 	  <div id="booking">
 	  <h2>Make a Booking</h2>

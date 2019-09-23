@@ -236,7 +236,7 @@ section#nowshowing div div p{
   width: 50%;
 }
 
-#synopsistext {
+#synopsisDiv {
     display: inline-block;
     vertical-align: top;
     min-width: 200px;

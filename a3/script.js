@@ -22,7 +22,7 @@ function activeNav(navSelected){
 }
 
 function checkActiveSection(Ycoord, pageSections){
-  if(Ycoord >= pageSections[0].offsetTop && Ycoord < pageSections[pageSections.length-1].offsetTop + pageSections[pageSections.length-1].scrollHeight){
+  if(Ycoord >= pageSections[0].offsetTop -3 && Ycoord < pageSections[pageSections.length-1].offsetTop + pageSections[pageSections.length-1].scrollHeight){
     for (var n=0; n<pageSections.length; n++){
       if (Ycoord >= pageSections[n].offsetTop && Ycoord < pageSections[n].offsetTop + pageSections[n].scrollHeight){     
         activeNav(pageSections[n].id + "Nav");
@@ -33,6 +33,10 @@ function checkActiveSection(Ycoord, pageSections){
   }
 }
 
-
+function updateSynopsis(thisMovie){
+  document.getElementById("movieTitle").innerHTML = thisMovie.children[0].innerHTML;
+  document.getElementById("trailer").src = thisMovie.children[1].innerHTML;
+  document.getElementById("synopsisText").innerHTML = thisMovie.children[2].innerHTML;
+}
 
 
