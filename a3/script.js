@@ -2,16 +2,21 @@ function hello(){
   alert("hello");
 }
 
+//Global variables and constants declared 
 const days = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
 const hours = {"12pm":"T12", "3pm":"T15", "6pm":"T18", "9pm":"T21"};
-var navList = ["aboutusNav", "pricingNav", "nowshowingNav"];
+var navList = ["aboutusNav", "pricingNav", "nowshowingNav"]; 
+var discountTimes = ["T12"];
+var discountDays = ["MON", "TUE", "WED", "THU", "FRI"];
 
+//Removes styling for all nav links
 function resetNavColour(){
   for (var nav of navList){
     document.getElementById(nav).style = "";
   }  
 }
 
+//Removes styling for all nav links and styles active link
 function activeNav(navSelected){
   resetNavColour();
   for (var nav of navList){
@@ -21,6 +26,7 @@ function activeNav(navSelected){
   }
 }
 
+//Checks active link using scrollY value
 function checkActiveSection(Ycoord, pageSections){
   if(Ycoord >= pageSections[0].offsetTop -3 && Ycoord < pageSections[pageSections.length-1].offsetTop + pageSections[pageSections.length-1].scrollHeight){
     for (var n=0; n<pageSections.length; n++){
@@ -33,6 +39,7 @@ function checkActiveSection(Ycoord, pageSections){
   }
 }
 
+//Updates synopsis elements and adds appropriate movie time buttons
 function updateSynopsis(thisMovie){
   document.getElementById("movieTitle").innerHTML = thisMovie.children[0].innerHTML;
   document.getElementById("trailer").src = thisMovie.children[1].innerHTML;
@@ -49,6 +56,7 @@ function updateSynopsis(thisMovie){
   }
 }
 
+//Returns day in required format using given session
 function checkDay(session){
   for (var day of days){
     if (session.toUpperCase().includes(day)){
@@ -57,6 +65,7 @@ function checkDay(session){
   }
 }
 
+//Returns hour in required format using given session
 function checkHour(session){
   for (var hour in hours){
     if (session.includes(hour)){
@@ -65,6 +74,7 @@ function checkHour(session){
   }
 }
 
+//Updates hidden form fields from movie time/session button
 function updateHiddenFormFields(movieId, button){
   let session = button.innerHTML;
   let movieDay = checkDay(session);
@@ -74,15 +84,7 @@ function updateHiddenFormFields(movieId, button){
   document.getElementById("movie-hour").value = movieHour;
 }
 
-
-
-
-
-
-
-
-
-//get all the elements of class 'error', clear the inner html
+//get all the elements of class 'error', clears the inner html and removes background on all input fields
 function clearErrors()
 {
   var allErrors = document.getElementsByClassName('error');
@@ -212,7 +214,32 @@ function formValidate()
     return (countErrors==0);
 }
 
-  
+//Gets price for ticket based on day/time
+function getPrice(seatType)
+{ 
+  var movieDay = document.getElementById("movie-day").value;
+  var movieHour = document.getElementById("movie-hour").value;
+  var price = seatType + "-nodisc";
+  var discPrice = seatType + "-disc";
+  if (discountDays.indexOf(movieDay) != -1 && discountTimes.indexOf(movieHour) != -1){
+    return document.getElementById(discPrice).innerHTML;
+  }else{
+    return document.getElementById(price).innerHTML;
+  }
+}
+
+//Calculates and updates total ticket price
+function calcTotalCost()
+{
+  var totalPrice = 0;
+  var seatInputs = document.getElementsByClassName('seats-input');
+  for (var i = 0; i < seatInputs.length; i++) {
+    var seatType = seatInputs[i].id.split('-')[1];
+console.log(getPrice(seatType));
+    totalPrice += seatInputs[i].value * getPrice(seatType);
+  }
+  document.getElementById("price-total").innerHTML = "Total $ " + totalPrice.toFixed(2);
+}  
 
 
 

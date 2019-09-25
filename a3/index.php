@@ -88,7 +88,7 @@ checkActiveSection(window.scrollY, pageSections);}
             <div class="row">
                 <div class="cell">Standard Child</div>
                 <div id="STC-disc" class="cell" value="11.00">11.00</div>
-                <div id="STA-nodisc" class="cell" value="15.30">15.30</div>
+                <div id="STC-nodisc" class="cell" value="15.30">15.30</div>
            </div>
 		<div class="rowOdd">
                 <div class="cell">First-Class Adult</div>
@@ -189,7 +189,7 @@ checkActiveSection(window.scrollY, pageSections);}
 
 	<div id="form-left" class="form">
 	<span>Standard</span>
-	Adults <select id="seats-STA" name="seats[STA]">
+	Adults <select id="seats-STA" name="seats[STA]" class="seats-input" onchange="calcTotalCost()">
 	 <option value="">Please Select</option>
 	 <option value="1">1</option>
 	 <option value="2">2</option>
@@ -205,7 +205,7 @@ checkActiveSection(window.scrollY, pageSections);}
 	<span class="error" id="seats-STA-error"></span>
 	<br>
 
-	Concession <select id="seats-STP" name="seats[STP]">
+	Concession <select id="seats-STP" name="seats[STP]" class="seats-input" onchange="calcTotalCost()">
 	 <option value="">Please Select</option>
 	 <option value="1">1</option>
 	 <option value="2">2</option>
@@ -221,7 +221,7 @@ checkActiveSection(window.scrollY, pageSections);}
 	<span class="error" id="seats-STP-error"></span>
 	<br>
 
-	Children <select id="seats-STC" name="seats[STC]">
+	Children <select id="seats-STC" name="seats[STC]" class="seats-input" onchange="calcTotalCost()">
 	 <option value="">Please Select</option>
 	 <option value="1">1</option>
 	 <option value="2">2</option>
@@ -238,7 +238,7 @@ checkActiveSection(window.scrollY, pageSections);}
 	<br>
 
 	<span>First Class</span>
-	Adults <select id="seats-FCA" name="seats[FCA]">
+	Adults <select id="seats-FCA" name="seats[FCA]" class="seats-input" onchange="calcTotalCost()">
 	 <option value="">Please Select</option>
 	 <option value="1">1</option>
 	 <option value="2">2</option>
@@ -254,7 +254,7 @@ checkActiveSection(window.scrollY, pageSections);}
 	<span class="error" id="seats-FCA-error"></span>
 	<br>
 
-	Concession <select id="seats-FCP" name="seats[FCP]">
+	Concession <select id="seats-FCP" name="seats[FCP]" class="seats-input" onchange="calcTotalCost()">
 	 <option value="">Please Select</option>
 	 <option value="1">1</option>
 	 <option value="2">2</option>
@@ -270,7 +270,7 @@ checkActiveSection(window.scrollY, pageSections);}
 	<span class="error" id="seats-FCP-error"></span>
 	<br>
 
-	Children <select id="seats-FCC" name="seats[FCC]">
+	Children <select id="seats-FCC" name="seats[FCC]" class="seats-input" onchange="calcTotalCost()">
 	 <option value="">Please Select</option>
 	 <option value="1">1</option>
 	 <option value="2">2</option>
@@ -284,7 +284,7 @@ checkActiveSection(window.scrollY, pageSections);}
 	 <option value="10">10</option>
 	</select>
 	<span class="error" id="seats-FCC-error"></span>
-
+	<br>
 	<span id="price-total" name="price[total]" value="">Total $ </span>
 	</div>
 	<div id="form-right" class="form">
