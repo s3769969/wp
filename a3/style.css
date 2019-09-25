@@ -279,7 +279,7 @@ button {
 #form-left, #form-right {
   display:inline-block;
   box-sizing:border-box;
-  min-width: 540px;
+  min-width: 300px;
   width: calc(95%/2);
 }
 
@@ -298,3 +298,22 @@ footer * {
   color: hsla(50, 90%, 50%, 1);
   background: linear-gradient(90deg, hsla(0, 0%, 10%, 1), hsla(0, 0%, 0%, 1));
 }
+
+#Booking-Area{
+  
+}
+
+#bookingTitleDayTime{
+  text-align: left;
+}
+
+#form, #sBooking, #fcBooking{
+  border-color: hsla(50, 90%, 50%, 1);
+}
+
+.error{
+  padding: 5px;
+  color: hsla(360, 100%, 70%, 1);
+}
+
+

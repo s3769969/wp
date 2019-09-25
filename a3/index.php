@@ -24,7 +24,7 @@ checkActiveSection(window.scrollY, pageSections);}
     </script>
   </head>
 
-  <body onload="updateSynopsis(ACT)">
+  <body>
 
     <header>
       <div>
@@ -176,7 +176,7 @@ checkActiveSection(window.scrollY, pageSections);}
 	  </div>
 	</article>
 
-      <article id='Booking Area'>
+      <article id='Booking-Area' style="display:none">
 	<h1>Booking Area</h1>
 
 	<div id="form" class="form">
@@ -188,7 +188,8 @@ checkActiveSection(window.scrollY, pageSections);}
 	<input id="movie-hour" type="hidden" name="movie[hour]" value="">
 
 	<div id="form-left" class="form">
-	<span>Standard</span>
+	<div id="sBooking">Standard
+	<br>
 	Adults <select id="seats-STA" name="seats[STA]" class="seats-input" onchange="calcTotalCost()">
 	 <option value="">Please Select</option>
 	 <option value="1">1</option>
@@ -236,8 +237,9 @@ checkActiveSection(window.scrollY, pageSections);}
 	</select>
 	<span class="error" id="seats-STC-error"></span>
 	<br>
-
-	<span>First Class</span>
+	</div>
+	<div id="fcBooking">First Class
+	<br>
 	Adults <select id="seats-FCA" name="seats[FCA]" class="seats-input" onchange="calcTotalCost()">
 	 <option value="">Please Select</option>
 	 <option value="1">1</option>
@@ -285,25 +287,29 @@ checkActiveSection(window.scrollY, pageSections);}
 	</select>
 	<span class="error" id="seats-FCC-error"></span>
 	<br>
-	<span id="price-total" name="price[total]" value="">Total $ </span>
+	</div>
+
+	<span id="price-total" name="price[total]" value="initial">Total $ </span>
+	<span class="error" id="price-total-error"></span>
+	<br>
 	</div>
 	<div id="form-right" class="form">
-	Name <input id="cust-name" type="text" name="cust[name]" placeholder="John Smith" onblur="nameCheck()">
+	Name <input id="cust-name" type="text" name="cust[name]" placeholder="John Smith" onblur="nameCheck()" required>
 	<span class="error" id="cust-name-error"></span>
 	<br>
-	Email <input id="cust-email" type="email" name="cust[email]" placeholder="john.smith@gmail.com">
+	Email <input id="cust-email" type="email" name="cust[email]" placeholder="john.smith@gmail.com" required>
 	<span class="error" id="cust-email-error"></span>
 	<br>
-	Mobile <input id="cust-mobile" type="tel" name="cust[mobile]" placeholder="Enter Mobile Number" onblur="mobileCheck()">
+	Mobile <input id="cust-mobile" type="tel" name="cust[mobile]" placeholder="Enter Mobile Number" onblur="mobileCheck()" required>
 	<span class="error" id="cust-mobile-error"></span>
 	<br>
-	Credit Card <input id="cust-card" type="text" name="cust[card]" placeholder="Enter CC Number" onblur="cardNoCheck()">
+	Credit Card <input id="cust-card" type="text" name="cust[card]" placeholder="Enter CC Number" onblur="cardNoCheck()" required>
 	<span class="error" id="cust-card-error"></span>
 	<br>
-	<input id="cust-expiry" type="month" name="cust[expiry]" onblur="expiryCheck()">
+	<input id="cust-expiry" type="month" name="cust[expiry]" onblur="expiryCheck()" required>
 	<span class="error" id="cust-expiry-error"></span>
 	<br>
-	<button id='order-button' onclick='Submit'>Order</button>
+	<button id='order-button' type="submit" value="order">Order</button>
 	<span class="error" id="order-error"></span>
 	</div>
 	</form>
