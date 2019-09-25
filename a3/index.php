@@ -181,7 +181,7 @@ checkActiveSection(window.scrollY, pageSections);}
 
 	<div id="form" class="form">
 	<h2 id=bookingTitleDayTime></h2>
-        <form id= bookingForm name="booking-form" method="post" onsubmit='return FormCheck()'>
+        <form id= bookingForm name="booking-form" method="post" target="_blank" action="https://titan.csit.rmit.edu.au/~e54061/wp/lunardo-formtest.php" onsubmit='return formValidate()'>
 	
 	<input id="movie-id" type="hidden" name="movie[id]" value="">
 	<input id="movie-day" type="hidden" name="movie[day]" value="">
@@ -288,28 +288,22 @@ checkActiveSection(window.scrollY, pageSections);}
 	<span id="price-total" name="price[total]" value="">Total $ </span>
 	</div>
 	<div id="form-right" class="form">
-	Name <input id="cust-name" type="text" name="cust[name]" placeholder="John Smith">
+	Name <input id="cust-name" type="text" name="cust[name]" placeholder="John Smith" onblur="nameCheck()">
 	<span class="error" id="cust-name-error"></span>
 	<br>
 	Email <input id="cust-email" type="email" name="cust[email]" placeholder="john.smith@gmail.com">
 	<span class="error" id="cust-email-error"></span>
 	<br>
-	Mobile <input id="cust-mobile" type="tel" name="cust[mobile]" placeholder="Enter Mobile Number">
+	Mobile <input id="cust-mobile" type="tel" name="cust[mobile]" placeholder="Enter Mobile Number" onblur="mobileCheck()">
 	<span class="error" id="cust-mobile-error"></span>
 	<br>
-	Credit Card <input id="cust-card" type="number" name="cust[card]" placeholder="Enter CC Number">
+	Credit Card <input id="cust-card" type="text" name="cust[card]" placeholder="Enter CC Number" onblur="cardNoCheck()">
 	<span class="error" id="cust-card-error"></span>
 	<br>
-	Expiry <input id="cust-expiryMonth" type="number" name="cust[expiryMonth]" placeholder="MM">
-	<span class="error" id="cust-expiryMonth-error"></span>
-	<br>
-	<input id="cust-expiryYear" type="number" name="cust[expiryYear]" min="new Date().getFullYear()" max="2050" step="1" placeholder="YYYY">
-	<span class="error" id="cust-expiryYear-error"></span>
-	<br>
-	<input id="cust-expiry" type="month" name="cust[expiry]">
+	<input id="cust-expiry" type="month" name="cust[expiry]" onblur="expiryCheck()">
 	<span class="error" id="cust-expiry-error"></span>
 	<br>
-	<button id='order-button' onclick='return hello()'>Order</button>
+	<button id='order-button' onclick='Submit'>Order</button>
 	<span class="error" id="order-error"></span>
 	</div>
 	</form>
