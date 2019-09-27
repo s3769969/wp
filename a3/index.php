@@ -24,7 +24,7 @@ checkActiveSection(window.scrollY, pageSections);}
     </script>
   </head>
 
-  <body>
+  <body onload="updateSynopsis(ACT); getCurrentYearMonth();">
 
     <header>
       <div>
@@ -70,7 +70,7 @@ checkActiveSection(window.scrollY, pageSections);}
 	<h1>Pricing</h1>
 
 	<div class="table">
-             <div class="rowOdd">
+             <div id="leadingRow" class="rowOdd">
                 <div class="cell" >Seat Type</div>
                 <div class="cell">Discount Pricing*</div>
                 <div class="cell">Standard Pricing</div>
@@ -113,7 +113,7 @@ checkActiveSection(window.scrollY, pageSections);}
 
       <section id="nowshowing">
 	<h1>Now Showing</h1>
-	<div id="ACT" href="#Synopsis" onclick="updateSynopsis(ACT)">
+	<div id="ACT" onclick="updateSynopsis(ACT); showSynopsis();">
 	  <div id="ACTTitle" style="display:none">Avengers: Endgame (PG-13)</div>
 	  <div id="ACTTrailer" style="display:none">https://www.youtube.com/embed/lLfKgylPkm4</div>
 	  <div id="ACTSynopsis" style="display:none">After the devastating events of Avengers: Infinity War (2018), the universe is in ruins due to the efforts of the Mad Titan, Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos's actions and undo the chaos to the universe, no matter what consequences may be in store, and no matter who they face...</div>
@@ -122,9 +122,9 @@ checkActiveSection(window.scrollY, pageSections);}
 	  <div><h2>Avengers: Endgame (PG-13)</h2><br>
 	  <p><br>Mon -<br>Tues -<br>Wed 9pm<br>Thurs 9pm<br>Fri 9pm<br>Sat 6pm<br>Sun 6pm</p>
 	  </div>
-	</div>
+	</div>>
 
-	<div id="RMC" href="#Synopsis" onclick="updateSynopsis(RMC)">
+	<div id="RMC" onclick="updateSynopsis(RMC); showSynopsis();">
 	  <div id=RMCTitle" style="display:none">Top End Wedding (M)</div>
 	  <div id="RMCTrailer" style="display:none">https://www.youtube.com/embed/j5ZXCCM-IVo</div>
 	  <div id="RMCSynopsis" style="display:none">Lauren and Ned are engaged, they are in love, and they have just ten days to find Lauren's mother who has gone AWOL somewhere in the remote far north of Australia, reunite her parents and pull off their dream wedding.</div>
@@ -135,7 +135,7 @@ checkActiveSection(window.scrollY, pageSections);}
 	  </div>
 	</div>
 
-	<div id="ANM" href="#Synopsis" onclick="updateSynopsis(ANM)">
+	<div id="ANM" onclick="updateSynopsis(ANM); showSynopsis();">
 	  <div id="ANMTitle" style="display:none">Dumbo (PG)</div>
 	  <div id="ANMTrailer" style="display:none">https://youtube.com/embed/7NiYVoqBt-8</div>
 	  <div id="ANMSynopsis" style="display:none">A young elephant, whose oversized ears enable him to fly, helps save a struggling circus, but when the circus plans a new venture, Dumbo and his friends discover dark secrets beneath its shiny veneer.</div>
@@ -146,7 +146,7 @@ checkActiveSection(window.scrollY, pageSections);}
 	  </div>
 	</div>
 
-	<div id="AHF" href="#Synopsis" onclick="updateSynopsis(AHF)">
+	<div id="AHF" onclick="updateSynopsis(AHF); showSynopsis();">
 	  <div id="AHFTitle" style="display:none">The Happy Prince (R)</div>
 	  <div id="AHFTrailer" style="display:none">https://youtube.com/embed/4HmN9r1Fcr8</div>
 	  <div id="AHFSynopsis" style="display:none">The untold story of the last days in the tragic times of Oscar Wilde, a person who observes his own failure with ironic distance and regards the difficulties that beset his life with detachment and humor.</div>
@@ -188,9 +188,10 @@ checkActiveSection(window.scrollY, pageSections);}
 	<input id="movie-hour" type="hidden" name="movie[hour]" value="">
 
 	<div id="form-left" class="form">
-	<div id="sBooking">Standard
-	<br>
-	Adults <select id="seats-STA" name="seats[STA]" class="seats-input" onchange="calcTotalCost()">
+	<label id="sBookingLabel" for="sBooking">Standard </label>
+	<div id="sBooking">
+	<label for="seats-STA">Adults  </label>
+	<select id="seats-STA" name="seats[STA]" class="seats-input" onchange="calcTotalCost()">
 	 <option value="">Please Select</option>
 	 <option value="1">1</option>
 	 <option value="2">2</option>
@@ -205,8 +206,8 @@ checkActiveSection(window.scrollY, pageSections);}
 	</select>
 	<span class="error" id="seats-STA-error"></span>
 	<br>
-
-	Concession <select id="seats-STP" name="seats[STP]" class="seats-input" onchange="calcTotalCost()">
+	<label for="seats-STP">Concession  </label>
+	<select id="seats-STP" name="seats[STP]" class="seats-input" onchange="calcTotalCost()">
 	 <option value="">Please Select</option>
 	 <option value="1">1</option>
 	 <option value="2">2</option>
@@ -221,8 +222,8 @@ checkActiveSection(window.scrollY, pageSections);}
 	</select>
 	<span class="error" id="seats-STP-error"></span>
 	<br>
-
-	Children <select id="seats-STC" name="seats[STC]" class="seats-input" onchange="calcTotalCost()">
+	<label for="seats-STC">Children  </label>
+	<select id="seats-STC" name="seats[STC]" class="seats-input" onchange="calcTotalCost()">
 	 <option value="">Please Select</option>
 	 <option value="1">1</option>
 	 <option value="2">2</option>
@@ -238,9 +239,10 @@ checkActiveSection(window.scrollY, pageSections);}
 	<span class="error" id="seats-STC-error"></span>
 	<br>
 	</div>
-	<div id="fcBooking">First Class
-	<br>
-	Adults <select id="seats-FCA" name="seats[FCA]" class="seats-input" onchange="calcTotalCost()">
+	<label id="fcBookingLabel" for="fcBooking">First Class </label>
+	<div id="fcBooking">
+	<label for="seats-FCA">Adults  </label>
+	<select id="seats-FCA" name="seats[FCA]" class="seats-input" onchange="calcTotalCost()">
 	 <option value="">Please Select</option>
 	 <option value="1">1</option>
 	 <option value="2">2</option>
@@ -255,8 +257,8 @@ checkActiveSection(window.scrollY, pageSections);}
 	</select>
 	<span class="error" id="seats-FCA-error"></span>
 	<br>
-
-	Concession <select id="seats-FCP" name="seats[FCP]" class="seats-input" onchange="calcTotalCost()">
+	<label for="seats-FCP">Concession  </label>
+	<select id="seats-FCP" name="seats[FCP]" class="seats-input" onchange="calcTotalCost()">
 	 <option value="">Please Select</option>
 	 <option value="1">1</option>
 	 <option value="2">2</option>
@@ -271,8 +273,8 @@ checkActiveSection(window.scrollY, pageSections);}
 	</select>
 	<span class="error" id="seats-FCP-error"></span>
 	<br>
-
-	Children <select id="seats-FCC" name="seats[FCC]" class="seats-input" onchange="calcTotalCost()">
+	<label for="seats-FCC">Children  </label>	
+	<select id="seats-FCC" name="seats[FCC]" class="seats-input" onchange="calcTotalCost()">
 	 <option value="">Please Select</option>
 	 <option value="1">1</option>
 	 <option value="2">2</option>
@@ -289,28 +291,37 @@ checkActiveSection(window.scrollY, pageSections);}
 	<br>
 	</div>
 
-	<span id="price-total" name="price[total]" value="initial">Total $ </span>
+	<label >Total $ </label>
+	<label id="price-total" name="price[total]" value="initial"></label>
 	<span class="error" id="price-total-error"></span>
 	<br>
 	</div>
 	<div id="form-right" class="form">
-	Name <input id="cust-name" type="text" name="cust[name]" placeholder="John Smith" onblur="nameCheck()" required>
+	<label for="cust-name">Name  </label>
+	<input id="cust-name" type="text" name="cust[name]" placeholder="John Smith" onblur="nameCheck()" required>
 	<span class="error" id="cust-name-error"></span>
 	<br>
-	Email <input id="cust-email" type="email" name="cust[email]" placeholder="john.smith@gmail.com" required>
+	<label for="cust-email">Email  </label>
+	<input id="cust-email" type="email" name="cust[email]" placeholder="john.smith@gmail.com" required>
 	<span class="error" id="cust-email-error"></span>
 	<br>
-	Mobile <input id="cust-mobile" type="tel" name="cust[mobile]" placeholder="Enter Mobile Number" onblur="mobileCheck()" required>
+	<label for="cust-mobile">Mobile  </label>
+	<input id="cust-mobile" type="tel" name="cust[mobile]" placeholder="Enter Mobile Number" onblur="mobileCheck()" required>
 	<span class="error" id="cust-mobile-error"></span>
 	<br>
-	Credit Card <input id="cust-card" type="text" name="cust[card]" placeholder="Enter CC Number" onblur="cardNoCheck()" required>
+	<label for="cust-card">Credit Card  </label>
+	<input id="cust-card" type="text" name="cust[card]" placeholder="Enter CC Number" onblur="cardNoCheck()" required>
 	<span class="error" id="cust-card-error"></span>
 	<br>
-	<input id="cust-expiry" type="month" name="cust[expiry]" onblur="expiryCheck()" required>
+	<label for="cust-expiry">Expiry  </label>
+	<input id="cust-expiry" type="month" name="cust[expiry]" min="" onblur="expiryCheck()" required>
 	<span class="error" id="cust-expiry-error"></span>
+	<br>
+        <br>
 	<br>
 	<button id='order-button' type="submit" value="order">Order</button>
 	<span class="error" id="order-error"></span>
+	<br>
 	</div>
 	</form>
 	</div>  

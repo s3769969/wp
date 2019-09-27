@@ -75,7 +75,6 @@ header {
   font-size: 400%;
   font-weight:bold;
   text-shadow: -3px -3px 3px rgba(255,255,255,0.8), 4px  4px 4px rgba(0,0,0,0.8);
-
 }
 
 header * {
@@ -160,13 +159,14 @@ section {
 }
 
 .table {
-  display:inline-block;
-  
+  display:inline-block; 
 }
+
 .row { 
   display:table;
   background: hsla(10, 90%, 50%, 1);
 }
+
 .cell {
   display:table-cell;
   padding:15px;
@@ -177,6 +177,15 @@ section {
   display: table;
   color: hsla(0, 0%, 0%, 1);
   background: hsla(50, 90%, 50%, 1);
+}
+
+#leadingRow div{
+  color: hsla(0, 0%, 0%, 1);
+  background: hsla(50, 90%, 50%, 1);
+}
+
+#pricing h1{
+  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
 }
 
 section#pricing{
@@ -194,9 +203,14 @@ section#pricing{
   background-size: cover;
 }
 
-#nowshowing, #nowshowing div {
+#nowshowing{
   border: 0px;
   background: repeating-linear-gradient(270deg, hsla(0, 0%, 10%, 1), hsla(0, 0%, 0%, 1) 20px, hsla(0, 0%, 10%, 1) 10px);
+}
+
+ #nowshowing div{
+  border: 0px;
+  background:hsla(0, 0%, 10%, 0);
 }
 
 section#nowshowing{
@@ -234,6 +248,15 @@ section#nowshowing div div p{
   display: inline-block;
   min-width: 250px;
   width: 50%;
+}
+
+#Synopsis{
+  background: linear-gradient(180deg, hsla(0, 0%, 0%, 1), hsla(0, 0%, 15%, 1));
+}
+
+#synopsisDiv, #booking{
+  border: 0px;
+  background: hsla(0, 0%, 0%, 0);
 }
 
 #synopsisDiv {
@@ -296,19 +319,65 @@ footer * {
   margin: 0px;
   border: 0px;
   color: hsla(50, 90%, 50%, 1);
-  background: linear-gradient(90deg, hsla(0, 0%, 10%, 1), hsla(0, 0%, 0%, 1));
+  background: linear-gradient(90deg, hsla(0, 0%, 0%, 1), hsla(0, 0%, 15%, 1));
 }
 
 #Booking-Area{
-  
+  min-width: 555px;
 }
 
 #bookingTitleDayTime{
   text-align: left;
 }
 
+#form-right {
+  vertical-align: 150px;
+  min-width: 400px;
+  box-sizing: content-box;
+}
+
+#form-left div select, #form-right input{
+  margin: 5px;
+}
+
+#form-right input{
+  width: 160px;
+}
+
+label {
+  display: inline-block;
+  width: 50%;
+  text-align: right;
+  margin: 5px;
+}
+
+#price-total{
+  width: unset;
+  border: 1px dotted hsla(50, 90%, 50%, 1);
+}
+
 #form, #sBooking, #fcBooking{
   border-color: hsla(50, 90%, 50%, 1);
+  padding: 30px;
+  min-width: 350px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+#sBookingLabel, #fcBookingLabel{
+  position: relative;
+  z-index: +1;
+  background: hsla(0, 0%, 10%, 1);
+  padding: 5px;
+  margin: 5px;
+  margin-left: 20%;
+  top: 34px;
+  width: fit-content;
+}
+
+#order-button{
+  position: relative;
+  margin-left: 74%;
 }
 
 .error{

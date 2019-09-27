@@ -36,9 +36,7 @@ function resetButtonColour(buttonList){
 
 //Removes styling for all session buttons and styles active button
 function selectedButton(buttonSelected){
-console.log(buttonSelected);
   var buttonList = buttonSelected.parentElement.children
-console.log(buttonList);
   resetButtonColour(buttonList);
   for (var button of buttonList){
     if (button == buttonSelected){
@@ -72,7 +70,7 @@ function updateSynopsis(thisMovie){
     let session = String(time.innerHTML);
     if(session.includes("-")){
     }else{
-      document.getElementById("timesButtonList").innerHTML += "<button onclick=\"updateHiddenFormFields(" + movieId + ", this)\">" + session + "</button>";
+      document.getElementById("timesButtonList").innerHTML += "<button onclick=\"updateHiddenFormFields(" + movieId + ", this); calcTotalCost();\">" + session + "</button>";
     }
   }
 }
@@ -192,6 +190,18 @@ function cardNoCheck()
   }
 }
 
+//returns current date in format YYYY-MM
+function getCurrentYearMonth()
+{
+  var currentYear = new Date().getFullYear();
+  var currentMonth = new Date().getMonth() + 1;
+  if (currentMonth < 10){
+    currentMonth = "0" + currentMonth;
+  }
+  var currentYearMonth = currentYear + "-" + currentMonth;
+  document.getElementById('cust-expiry').min = String(currentYearMonth);
+}
+
 // Check the card expiry date
 function expiryCheck()
 {
@@ -258,16 +268,15 @@ function calcTotalCost()
   var seatInputs = document.getElementsByClassName('seats-input');
   for (var i = 0; i < seatInputs.length; i++) {
     var seatType = seatInputs[i].id.split('-')[1];
-console.log(getPrice(seatType));
     totalPrice += seatInputs[i].value * getPrice(seatType);
   }
   document.getElementById("price-total").value = totalPrice.toFixed(2);
-  document.getElementById("price-total").innerHTML = "Total $ " + totalPrice.toFixed(2);
+  document.getElementById("price-total").innerHTML = totalPrice.toFixed(2);
 }  
 
 function purchaseCheck(){
   var priceTotal = document.getElementById("price-total").value;
-  if (priceTotal >= 0){
+  if (priceTotal > 0){
     return true;
   } else{
     document.getElementById("price-total-error").innerHTML="<br>You have not purchased any movie tickets! Please purchase a ticket before submitting your order.";
