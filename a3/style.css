@@ -295,7 +295,7 @@ button {
 }
 
 /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
-.sticky + .content, #aboutus, #pricing, #nowshowing {
+.sticky + .content, #aboutus, #pricing, #nowshowing, #Synopsis {
   padding-top: 100px;
 }
 
@@ -385,4 +385,7 @@ label {
   color: hsla(360, 100%, 70%, 1);
 }
 
-
+pre {
+  background: black;
+  color: white;
+}
