@@ -31,5 +31,3 @@ function php2js( $arr, $arrName ) {
 
 
 ?>
-
-<?php ?>
