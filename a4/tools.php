@@ -191,5 +191,14 @@ function emptyFields($requiredFields){
   return $emptyCount;
 }
 
+//creates table using data
+function table($detailsArray){
+  $details = " ";
+  foreach ($detailsArray as $key => $value){
+     $details .= "<div class=\"row\"><div class=\"cell\" style=\"display: table-cell\">" .$key. "</div>";
+     $details .= "<div class=\"cell\" style=\"display: table-cell\">" .$value. "</div></div>";
+  }
+  return $details;
+}
 
 ?>

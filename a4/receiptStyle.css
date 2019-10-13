@@ -1,0 +1,17 @@
+.table {
+  display:inline-block; 
+}
+
+.row { 
+  display:table;
+}
+
+.cell {
+  display:table-cell;
+  padding:15px;
+  width:200px;
+}
+
+.subHeading {
+  font-weight: bold;
+}
