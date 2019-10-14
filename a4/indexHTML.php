@@ -314,7 +314,7 @@ checkActiveSection(window.scrollY, pageSections);}
 	<span class="error" id="cust-card-error"><?= $cardError ?></span>
 	<br>
 	<label for="cust-expiry">Expiry  </label>
-	<input id="cust-expiry" type="month" name="cust[expiry]" min="" value='<?= $expiryEcho ?>'>
+	<input id="cust-expiry" type="date" name="cust[expiry]" min="" value='<?= $expiryEcho ?>'>
 	<span class="error" id="cust-expiry-error"><?= $expiryError ?></span>
 	<br>
         <br>

@@ -70,6 +70,7 @@ if (!empty($_POST))
     $expiryEcho = $_POST['cust']['expiry'];
     validExpiry() ? : $expiryError =' Please use a card that expires in no less than 28 days';
     validExpiry() ? : $errorsFound++;
+    $errorsFound = validExpiry();
   }else{
     $expiryError=' Cannot leave expiry blank';
     $errorsFound++;

@@ -199,14 +199,13 @@ function validCard(){
 
 function validExpiry(){
   $expiryDate = $_POST['cust']['expiry'];
-  $elements = preg_split("/[-]+/", $expiryDate);
-  $expiryMonth = $elements[1];
-  $expiryYear = $elements[0];
-  if ($expiryMonth[0] == 0){
-    $expiryMonth = $expiryMonth[1];
-  }
-  //Check if year is in future or if year is current and expiry is no less than 28 days
-  if ($expiryYear > date("Y") || ($expiryYear = date("Y") && $expiryMonth >= date("m"))){
+  $currentDate = date("Y-m-d");
+  $currentDateTime = new DateTime($currentDate);
+  $expiryDateTime = new DateTime($expiryDate);
+  $diff = date_diff($currentDateTime, $expiryDateTime)->format('%R%a');
+
+  //Check that card expiry is no less than 28 days
+  if($diff >= 28){
     $cust[expiry] = $_POST['cust']['expiry'];
     return true;
   }else{
