@@ -20,7 +20,7 @@ p {
   display: inherit;
 }
 
-body {
+#receipt, #gTicket, .sTicket {
   size: auto;
   size: A4 portrait;
   padding: 10px;

@@ -181,6 +181,7 @@ checkActiveSection(window.scrollY, pageSections);}
 
 	<div id="form" class="form">
 	<h2 id=bookingTitleDayTime></h2>
+        <span class="error" id="sess-error"><?= $sessError ?></span>
         <form id= bookingForm name="booking-form" method="post" action="index.php">
 	
 	<input id="movie-id" type="hidden" name="movie[id]" value="">
@@ -293,7 +294,7 @@ checkActiveSection(window.scrollY, pageSections);}
 
 	<label >Total $ </label>
 	<label id="price-total" name="price[total]" value="initial"></label>
-	<span class="error" id="price-total-error"></span>
+	<span class="error" id="price-total-error"><?= $noTicketError ?></span>
 	<br>
 	</div>
 	<div id="form-right" class="form">

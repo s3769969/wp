@@ -56,6 +56,8 @@ $emailEcho = '';
 $mobileEcho = '';
 $cardEcho = '';
 $expiryEcho = '';
+$noTicketError = '';
+$sessError = '';
 $nameError = '';
 $emailError = '';
 $mobileError = '';
@@ -214,6 +216,16 @@ function validExpiry(){
   }
 }
 
+//check for at least 1 ticket purchased
+function numTicket($seatsArray){
+  $numTickets = '';
+  $seats = $_POST['seats'];
+  foreach ($seats as $seatType => $seatNo){
+    $numTickets += $seatNo;
+  }
+  return $numTickets;
+}
+
 //Check if any required fields are empty
 function emptyFields($requiredFields){
   $emptyCount = 0;
@@ -237,10 +249,8 @@ function table($detailsArray){
 function validSess($moviesObject){
   foreach ($moviesObject as $id => $screenings){
     if ($_POST['movie']['id'] == $id){
-      foreach (validSessHelper($moviesObject, $_POST['movie']['id']) as $hour){
-        if(in_array($_POST['movie']['hour'], $hour)){
+      if(validSessHelper($moviesObject, $_POST['movie']['id']) == $_POST['movie']['hour']){
           return true;
-        }
       }
     }
   }
@@ -249,7 +259,7 @@ function validSess($moviesObject){
 
 function validSessHelper($arr, $id){
   foreach($arr[$id]['screenings'] as $day => $hour){
-    if($day == $$_POST['movie']['day']){
+    if($day == $_POST['movie']['day']){
       return $hour;
     }
   }
@@ -292,5 +302,10 @@ function priceCalc($pricesObject){
   return number_format((float)$priceTotal, 2, '.', '');
 }
 
+function clearSession(){
+  if(isset($_POST['clear-session'])){
+    unset($_SESSION['cust'], $_SESSION['movie'], $_SESSION['seats']);
+  }
+}
 
 ?>

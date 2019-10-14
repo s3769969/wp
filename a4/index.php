@@ -15,6 +15,15 @@ $requiredFields = [
 //  'expiry' => $_POST['cust']['expiry']
 ];
 
+$seatsArray = [
+    'STA' => $_POST['seats']['STA'],
+    'STP' => $_POST['seats']['STP'],
+    'STC' => $_POST['seats']['STC'],
+    'FCA' => $_POST['seats']['FCA'],
+    'FCP' => $_POST['seats']['FCP'],
+    'FCC' => $_POST['seats']['FCC']
+];
+
 //sanitise potential malicious code
 sanitise($posts);
 
@@ -22,10 +31,11 @@ sanitise($posts);
 $errorsFound = 0;
 if (!empty($_POST)) 
 { 
-  //$errorsFound .= emptyFields($requiredFields);
+  numTicket($seatsArray) > 0 ? : $noTicketError = 'You have not purchased any movie tickets! Please purchase a ticket before submitting your order.';;
+  numTicket($seatsArray) > 0 ? : $errorsFound++;
   if(!empty($_POST['movie']['id']) && !empty($_POST['movie']['day']) && !empty($_POST['movie']['hour'])){
     validSess($moviesObject) ? : $sessError =' Please select an available movie session';
-    validSess($moviesObject) ? : $errorsFound;
+    validSess($moviesObject) ? : $errorsFound++;
   }else{
     $sessError =' Please select a movie session';
     $errorsFound++;
@@ -70,15 +80,11 @@ if (!empty($_POST))
     $expiryEcho = $_POST['cust']['expiry'];
     validExpiry() ? : $expiryError =' Please use a card that expires in no less than 28 days';
     validExpiry() ? : $errorsFound++;
-    $errorsFound = validExpiry();
   }else{
     $expiryError=' Cannot leave expiry blank';
     $errorsFound++;
   }
   $eCheckExpiry = $errorsFound;
-
-  //validTicket() ? : $errorsFound++;
-  $eCheck3 = $errorsFound;
  
  // If POST data was sent and no errors. Post data is added to session and redirect to receipt page. 
   if ($errorsFound === 0)
@@ -122,4 +128,4 @@ function alert($msg) {
 <?= console_log($eCheckCard); ?>
 <?= console_log($eCheckExpiry); ?>
 
-<?= console_log($eCheck3); ?>
+<?= console_log($check); ?>

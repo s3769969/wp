@@ -381,6 +381,7 @@ label {
 }
 
 .error{
+  display: inline-block;
   padding: 5px;
   color: hsla(360, 100%, 70%, 1);
 }
