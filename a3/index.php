@@ -122,7 +122,7 @@ checkActiveSection(window.scrollY, pageSections);}
 	  <div><h2>Avengers: Endgame (PG-13)</h2><br>
 	  <p><br>Mon -<br>Tues -<br>Wed 9pm<br>Thurs 9pm<br>Fri 9pm<br>Sat 6pm<br>Sun 6pm</p>
 	  </div>
-	</div>>
+	</div>
 
 	<div id="RMC" onclick="updateSynopsis(RMC); showSynopsis();">
 	  <div id=RMCTitle" style="display:none">Top End Wedding (M)</div>

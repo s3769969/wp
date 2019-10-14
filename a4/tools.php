@@ -1,6 +1,8 @@
 <?php
   session_start();
 
+// provided PHP functions and modules here
+
 function preShow( $arr, $returnAsString=false ) {
   $ret  = '<pre>' . print_r($arr, true) . '</pre>';
   if ($returnAsString)
@@ -34,7 +36,7 @@ function console_log($output, $with_script_tags = true) {
     echo $js_code;
 }
 
-// Put your PHP functions and modules here
+// my PHP functions and modules here
 
 // initialise variables we need with default values 
 $movie['id'] = '';
@@ -307,5 +309,4 @@ function clearSession(){
     unset($_SESSION['cust'], $_SESSION['movie'], $_SESSION['seats']);
   }
 }
-
 ?>

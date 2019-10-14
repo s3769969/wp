@@ -57,7 +57,6 @@ if(empty($_SESSION['cart']['cust']) || empty($_SESSION['cart']['movie']) || empt
   flock($fp, LOCK_UN);
   fclose($fp);
 
-
   //print receipt
   echo "<link id='stylecss' type=\"text/css\" rel=\"stylesheet\" href=\"receiptStyle.css\">";
   echo "<div id='receipt'>";
@@ -79,7 +78,7 @@ if(empty($_SESSION['cart']['cust']) || empty($_SESSION['cart']['movie']) || empt
   echo "</div>";
   echo "<br>";
 
-/*
+/* file reader for copying file or retrieving bookings
 $fp = fopen($filename, "r");
 flock($fp, LOCK_SH);
 while($line = fgetcsv($fp)){
@@ -93,13 +92,30 @@ echo "<p>{$records[0][0]}</p>"
 
   echo "<div id='gTicket'>";
   echo "<h2>Group Ticket</h2>";
+  echo "<div><p>Film: " . $_SESSION['cart']['movie']['id'] . "</p>";
+  echo "<p>Cinema: 10 </p>";
+  echo "<p>Session: " . $_SESSION['cart']['movie']['day'] . "	" . $_SESSION['cart']['movie']['hour'] . "</p>";
+  echo table($seatDetailsArray);
+  echo "<p>Amount: $" .priceCalc($pricesObject). "</p>";
+  echo "<p>Ticket Code: " . mt_rand(1000000, 999999999) . "</p></div>";
+  echo "<div class='logo'>Lunardo Cinema</div>";
   echo "</div>";
   echo "<br>";  
 
-  echo "<div class='sTicket'>";
-  echo "<h2>Single Ticket</h2>";
-  echo "</div>";
+  foreach($_SESSION['cart']['seats'] as $seatType => $numSeats){
+    for($count = 0; $count < $numSeats; $count++){
+      echo "<div class='sTicket'>";
+      echo "<h2>Single Ticket</h2>";
+      echo "<div><p>Film: " . $_SESSION['cart']['movie']['id'] . "</p>";
+      echo "<p>Cinema: 10 </p>";
+      echo "<p>Session: " . $_SESSION['cart']['movie']['day'] . "	" . $_SESSION['cart']['movie']['hour'] . "</p>";
+      echo "<p>Seat Type: " . $seatType . "</p>";
+      echo "<p>Amount: $" .getPrice($seatType, $pricesObject). "</p>";
+      echo "<p>Ticket Code: " . mt_rand(1000000, 999999999) . "</p></div>";
+      echo "<div class='logo'>Lunardo Cinema</div>";
+      echo "</div>";
+    }    
+  }
 }
 ?>
 
-<?= console_log($records); ?>

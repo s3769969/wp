@@ -6,7 +6,7 @@
   display:table;
 }
 
-.cell {
+#receipt .cell {
   display:table-cell;
   padding:10px;
   width:200px;
@@ -26,4 +26,18 @@ p {
   padding: 10px;
   margin: 35px;
   border: 1px solid black;
+  color: hsla(50, 90%, 50%, 1);
+  background: linear-gradient(315deg, hsla(0, 0%, 0%, 1), hsla(222, 100%, 30%, 1));
+}
+
+.cell {
+  display:table-cell;
+  padding:5px;
+  width:40px;
+}
+
+.logo{
+  font-size: 50px;
+  padding-left: 440px;
+  font-style: italic;
 }

@@ -96,12 +96,6 @@ if (!empty($_POST))
   }else{
   }
 }
-
-//alert($_SESSION['cart']['cust']['expiry']);
-
-function alert($msg) {
-    echo "<script type='text/javascript'>alert('$msg');</script>";
-}
 ?> 
 
 <?php 
@@ -112,20 +106,5 @@ function alert($msg) {
   preShow($_POST);
   echo "<pre>\$_Session Contains: <pre>";
   preShow($_SESSION);
-  //$my_bad_array = ["1", "2", "1", "4"];
-  //$aarg = preshow($my_bad_array, true);
-  //echo "why is \n $aarg \n not working?";
-
-  $pricesArrayPHP = array (1, 2, 3, 4);
-  php2js($pricesArrayPHP, 'pricesArrayJS');
   printMyCode();
-
 ?>
-
-<?= console_log($eCheckName); ?>
-<?= console_log($eCheckEmail); ?>
-<?= console_log($eCheckMobile); ?>
-<?= console_log($eCheckCard); ?>
-<?= console_log($eCheckExpiry); ?>
-
-<?= console_log($check); ?>
