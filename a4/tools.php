@@ -36,7 +36,40 @@ function console_log($output, $with_script_tags = true) {
 
 // Put your PHP functions and modules here
 
+// initialise variables we need with default values 
+$movie['id'] = '';
+$movie['day'] = '';
+$movie['hour'] = '';
+$seats['STA'] = '';
+$seats['STP'] = '';
+$seats['STC'] = '';
+$seats['FCA'] = '';
+$seats['FCP'] = '';
+$seats['FCC'] = '';
+$cust['name'] = '';
+$cust['email'] = '';
+$cust['mobile'] = '';
+$cust['card'] = '';
+$cust['expiry'] = '';
+$nameEcho = '';
+$emailEcho = '';
+$mobileEcho = '';
+$cardEcho = '';
+$expiryEcho = '';
+$nameError = '';
+$emailError = '';
+$mobileError = '';
+$cardError = '';
+$expiryError = '';
+$emptyError = '<span style="color:red">Cannot be blank</span>';
+$response = '';
+
 //declare needed variables and arrays
+$ticketDetailsArray = [
+  'Movie:' => ["ACT", "RMC", "ANM", "AHF"],
+  'Day:' => ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"],
+  'Hour:' => ["T12", "T15", "T18", "T21"]];
+
 $descriptionACT =<<< "descriptionACT"
 'After the devastating events of Avengers: Infinity War (2018), the universe is in ruins due to the efforts of the Mad Titan, Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos's actions and undo the chaos to the universe, no matter what consequences may be in store, and no matter who they face...'
 descriptionACT;
@@ -129,7 +162,7 @@ function validName(){
     $cust[name] = $_POST['cust']['name'];
     return true;
   }else{
-    $custNameError=' <span style="color:red">Enter valid response</span>';
+    $nameError=' Please enter a valid name';
     return false;
   }
 }
@@ -139,7 +172,7 @@ function validEmail(){
     $cust[email] = $_POST['cust']['email'];
     return true;
   }else{
-    $custEmailError =' <span style="color:red">Enter valid response</span>';
+    $emailError =' Please enter a valid email';
     return false;
   }
 }
@@ -149,7 +182,7 @@ function validMobile(){
     $cust[mobile] = $_POST['cust']['mobile'];
     return true;
   }else{
-    $custMobileError =' <span style="color:red">Enter valid response</span>';
+    $mobileError =' Please enter an Australian mobile number';
     return false;
   }
 }
@@ -159,7 +192,7 @@ function validCard(){
     $cust[card] = $_POST['cust']['card'];
     return true;
   }else{
-    $custCardError =' <span style="color:red">Enter valid response</span>';
+    $cardError =' Please enter a valid Credit Card number';
     return false;
   }
 }
@@ -172,12 +205,12 @@ function validExpiry(){
   if ($expiryMonth[0] == 0){
     $expiryMonth = $expiryMonth[1];
   }
-  //Check if year is in future or if year is current and month is at least current month. As months are indexed at 0, we subtract 1
+  //Check if year is in future or if year is current and expiry is no less than 28 days
   if ($expiryYear > date("Y") || ($expiryYear = date("Y") && $expiryMonth >= date("m"))){
     $cust[expiry] = $_POST['cust']['expiry'];
     return true;
   }else{
-    $custExpiryError =' <span style="color:red">Enter valid response</span>';
+    $expiryError =' Please use a card that expires in no less than 28 days';
     return false;
   }
 }
@@ -186,7 +219,7 @@ function validExpiry(){
 function emptyFields($requiredFields){
   $emptyCount = 0;
   foreach ($requiredFields as $value){
-    empty($value) ? $emptyCount++ : console.log(1.2);
+    empty($value) ? $emptyCount++ : $emptyCount;
   }
   return $emptyCount;
 }
@@ -200,5 +233,65 @@ function table($detailsArray){
   }
   return $details;
 }
+
+//check movie session exists
+function validSess($moviesObject){
+  foreach ($moviesObject as $id => $screenings){
+    if ($_POST['movie']['id'] == $id){
+      foreach (validSessHelper($moviesObject, $_POST['movie']['id']) as $hour){
+        if(in_array($_POST['movie']['hour'], $hour)){
+          return true;
+        }
+      }
+    }
+  }
+  return false;
+}
+
+function validSessHelper($arr, $id){
+  foreach($arr[$id]['screenings'] as $day => $hour){
+    if($day == $$_POST['movie']['day']){
+      return $hour;
+    }
+  }
+}
+
+//Gets price for ticket based on day/time
+function getPrice($seatType, $pricesObject)
+{ 
+  $discountTimes = ["T12"];
+  $discountDays = ["MON", "TUE", "WED", "THU", "FRI"];
+  $movieDay = $_SESSION['cart']['movie']['day'];
+  $movieHour = $_SESSION['cart']['movie']['hour'];
+  if (in_array($movieDay, $discountDays) && in_array($movieHour, $discountTimes)){
+    foreach ($pricesObject as $disc => $seatCode){
+      return getPriceHelper($pricesObject["disc"], $seatType);      
+    }
+  }else{
+    foreach ($pricesObject as $disc => $seatCode){
+      return getPriceHelper($pricesObject["full"], $seatType);      
+    }
+  }
+}
+
+function getPriceHelper($arr, $seatType){
+  foreach($arr as $seatCode => $price){
+    if($seatType == $seatCode){
+      return $price;
+    }
+  }
+}
+
+//calc total cost of tickets
+function priceCalc($pricesObject){
+  $priceTotal = '';
+  $seats = $_SESSION['cart']['seats'];
+  foreach ($seats as $seatType => $seatNo){
+    $price = getPrice($seatType, $pricesObject);
+    $priceTotal += $price * $seatNo;
+  }
+  return number_format((float)$priceTotal, 2, '.', '');
+}
+
 
 ?>

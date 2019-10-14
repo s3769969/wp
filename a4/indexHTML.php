@@ -287,7 +287,7 @@ checkActiveSection(window.scrollY, pageSections);}
 	 <option value="9">9</option>
 	 <option value="10">10</option>
 	</select>
-	<span class="error" id="seats-FCC-error"></span>
+	<span class="error" id="seats-FCC-error"><?= $seatError ?></span>
 	<br>
 	</div>
 
@@ -298,29 +298,29 @@ checkActiveSection(window.scrollY, pageSections);}
 	</div>
 	<div id="form-right" class="form">
 	<label for="cust-name">Name  </label>
-	<input id="cust-name" type="text" name="cust[name]" placeholder="John Smith">
-	<span class="error" id="cust-name-error"></span>
+	<input id="cust-name" type="text" name="cust[name]"  value='<?= $nameEcho ?>' placeholder="John Smith">
+	<span class="error" id="cust-name-error"><?= $nameError ?></span>
 	<br>
 	<label for="cust-email">Email  </label>
-	<input id="cust-email" type="email" name="cust[email]" placeholder="john.smith@gmail.com">
-	<span class="error" id="cust-email-error"></span>
+	<input id="cust-email" type="email" name="cust[email]" value='<?= $emailEcho ?>' placeholder="john.smith@gmail.com">
+	<span class="error" id="cust-email-error"><?= $emailError ?></span>
 	<br>
 	<label for="cust-mobile">Mobile  </label>
-	<input id="cust-mobile" type="tel" name="cust[mobile]" placeholder="Enter Mobile Number">
-	<span class="error" id="cust-mobile-error"></span>
+	<input id="cust-mobile" type="tel" name="cust[mobile]" value='<?= $mobileEcho ?>' placeholder="Enter Mobile Number">
+	<span class="error" id="cust-mobile-error"><?= $mobileError ?></span>
 	<br>
 	<label for="cust-card">Credit Card  </label>
-	<input id="cust-card" type="text" name="cust[card]" placeholder="Enter CC Number">
-	<span class="error" id="cust-card-error"></span>
+	<input id="cust-card" type="text" name="cust[card]" value='<?= $cardEcho ?>' placeholder="Enter CC Number">
+	<span class="error" id="cust-card-error"><?= $cardError ?></span>
 	<br>
 	<label for="cust-expiry">Expiry  </label>
-	<input id="cust-expiry" type="month" name="cust[expiry]" min="">
-	<span class="error" id="cust-expiry-error"></span>
+	<input id="cust-expiry" type="month" name="cust[expiry]" min="" value='<?= $expiryEcho ?>'>
+	<span class="error" id="cust-expiry-error"><?= $expiryError ?></span>
 	<br>
         <br>
 	<br>
 	<button id='order-button' type="submit" value="order">Order</button>
-	<span class="error" id="order-error"></span>
+	<span class="error" id="order-error" value='<?= $orderError ?>'></span>
 	<br>
 	</div>
 	</form>
